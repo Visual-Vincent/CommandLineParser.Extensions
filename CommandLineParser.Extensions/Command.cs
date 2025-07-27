@@ -75,6 +75,12 @@ namespace CommandLine.Extensions
         /// <returns>A <see cref="ParserResult{T}"/> containing the appropriate instance with parsed values as a <see cref="object"/> and a sequence of <see cref="Error"/>.</returns>
         public static ParserResult<object> ParseAndExecute(Parser parser, string[] args)
         {
+            if(parser == null)
+                throw new ArgumentNullException(nameof(parser));
+
+            if(args == null)
+                throw new ArgumentNullException(nameof(args));
+
             var result = parser.ParseCommands(args, Commands);
 
             result.WithParsed(obj => {
