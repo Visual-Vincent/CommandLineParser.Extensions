@@ -28,6 +28,12 @@
     <Description Condition="'$(Description)' == ''">$(AssemblyTitle)</Description>
     <Description Condition="'$(Description)' != ''">$(Description)</Description>
     <PackageVersion>$(Version)</PackageVersion>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>
 
   <ItemGroup>
