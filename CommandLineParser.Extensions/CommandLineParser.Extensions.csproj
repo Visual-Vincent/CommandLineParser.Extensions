@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>VisualVincent.Extensions.CommandLineParser</AssemblyName>
+    <RootNamespace>CommandLine.Extensions</RootNamespace>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+
+  <!-- Application information -->
+  <PropertyGroup>
+    <AssemblyTitle>$(AssemblyName)</AssemblyTitle>
+    <Copyright>Copyright © Visual Vincent 2022-2025</Copyright>
+    <Company>Visual Vincent (Open Source Developer)</Company>
+    <Description>Unofficial, handy extensions for the excellent CommandLineParser library.</Description>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/Visual-Vincent/CommandLineParser.Extensions.git</RepositoryUrl>
+    <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
+  </PropertyGroup>
+
+  <!-- NuGet configuration -->
+  <PropertyGroup>
+    <PackageId>$(AssemblyName)</PackageId>
+    <Title>$(AssemblyTitle)</Title>
+    <Authors>$(Company)</Authors>
+    <Description Condition="'$(Description)' == ''">$(AssemblyTitle)</Description>
+    <Description Condition="'$(Description)' != ''">$(Description)</Description>
+    <PackageVersion>$(Version)</PackageVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommandLineParser" Version="2.9.1" />
+  </ItemGroup>
+
+</Project>
