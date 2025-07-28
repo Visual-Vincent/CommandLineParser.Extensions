@@ -1,0 +1,46 @@
+name: Publish to NuGet
+
+on:
+  push:
+    tags:
+      - v[0-9]+.[0-9]+.[0-9]+
+
+jobs:
+  BuildAndTest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build -c Release --no-restore
+
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
+
+  Publish:
+    needs: [BuildAndTest]
+    runs-on: ubuntu-latest
+    if: (github.ref_type == 'tag')
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Package project
+        run: dotnet pack -c Release "/p:PackageOutputPath=$GITHUB_WORKSPACE/artifacts" "/p:Version=${GITHUB_REF_NAME##v}" /p:RepositoryCommit=$GITHUB_SHA "/p:Authors=Visual Vincent"
+
+      - name: Publish NuGet package
+        run: dotnet nuget push "$GITHUB_WORKSPACE/artifacts/*.nupkg"  --source https://api.nuget.org/v3/index.json --api-key {{ secrets.NUGET_API_KEY }}

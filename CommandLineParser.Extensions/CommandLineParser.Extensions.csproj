@@ -11,12 +11,12 @@
 
   <!-- Application information -->
   <PropertyGroup>
-    <AssemblyTitle>$(AssemblyName)</AssemblyTitle>
+    <AssemblyTitle>Extensions for CommandLineParser</AssemblyTitle>
     <Copyright>Copyright © Visual Vincent 2022-2025</Copyright>
     <Company>Visual Vincent (Open Source Developer)</Company>
     <Description>Unofficial, handy extensions for the excellent CommandLineParser library.</Description>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/Visual-Vincent/CommandLineParser.Extensions.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/Visual-Vincent/CommandLineParser.Extensions</RepositoryUrl>
     <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
   </PropertyGroup>
 
