@@ -43,4 +43,4 @@ jobs:
         run: dotnet pack -c Release "/p:PackageOutputPath=$GITHUB_WORKSPACE/artifacts" "/p:Version=${GITHUB_REF_NAME##v}" /p:RepositoryCommit=$GITHUB_SHA "/p:Authors=Visual Vincent"
 
       - name: Publish NuGet package
-        run: dotnet nuget push "$GITHUB_WORKSPACE/artifacts/*.nupkg"  --source https://api.nuget.org/v3/index.json --api-key {{ secrets.NUGET_API_KEY }}
+        run: dotnet nuget push "$GITHUB_WORKSPACE/artifacts/*.nupkg"  --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
