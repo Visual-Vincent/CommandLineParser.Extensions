@@ -12,7 +12,7 @@ namespace CommandLine.Extensions
     {
         private static readonly Type[] Commands = Assembly.GetEntryAssembly()
             .GetTypes()
-            .Where(t => !t.IsNested && t.BaseType == typeof(Command) && t.GetCustomAttribute<VerbAttribute>(false) != null)
+            .Where(t => !t.IsNested && typeof(Command).IsAssignableFrom(t) && t.GetCustomAttribute<VerbAttribute>(false) != null)
             .ToArray();
 
         private HelpText helpText;
