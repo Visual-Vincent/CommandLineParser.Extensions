@@ -1,5 +1,7 @@
 # CommandLineParser.Extensions
 
+[![NuGet](https://img.shields.io/nuget/v/VisualVincent.Extensions.CommandLineParser?style=plastic)](https://www.nuget.org/packages/VisualVincent.Extensions.CommandLineParser/) [![License](https://img.shields.io/github/license/Visual-Vincent/CommandLineParser.Extensions?style=plastic)](/LICENSE)
+
 Unofficial, handy extensions for the excellent CommandLineParser library.
 
 ## Features
